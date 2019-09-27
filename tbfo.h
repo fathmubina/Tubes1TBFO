@@ -70,10 +70,22 @@ void BuangB();
         atau menampilkan pesan "Aksi tidak valid" */
 
 void Kafe();
+/* Bersosialisasi ke Kasfe,  harus divalidasi energi >= 10, fun = 0 dan hygiene >=5.
+   I.S. : State sembarang
+   F.S. : Fun bertambah +15, Energy berkurang -10, dan hygiene bertambah -5 atau menampilkan pesan
+        "Aksi tidak valid" */
 
 void MedSos();
+/* Bermain Media Sosial,  harus divalidasi energi >= 10 dan fun <= 5.
+   I.S. : State sembarang
+   F.S. : Fun bertambah +10 dan Energy berkurang -10 atau menampilkan pesan
+        "Aksi tidak valid" */
 
 void Komp();
+/* Bermain komputer,  harus divalidasi energi >= 10, fun = 0 dan hygiene >=5.  ;
+   I.S. : State sembarang
+   F.S. : Fun bertambah +15, Energy berkurang -10, dan hygiene bertambah -5 atau menampilkan pesan
+        "Aksi tidak valid" */
 
 void Mandi();
 
