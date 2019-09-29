@@ -8,6 +8,14 @@ int Energy;
 int Fun;
 char TidakValid[] = "Aksi tidak valid";
 
+bool isGameOver()
+{
+        /* Mengirimkan true jola permainan selesai yaitu 
+        jika semua atribut bernilai 0 atau 15
+        */
+        return ((Hygiene == 15) && (Energy == 15) && (Fun == 15)) || ((Hygiene == 0) && (Energy == 0) && (Fun == 0));
+}
+
 void TulisKondisi()
 {
         /* Menulis semua kondisi
@@ -120,7 +128,7 @@ void Minum2()
         I.S. : State sembarang
         F.S. : Hygiene berkurang -10 dan energy bertambah 5
         atau menampilkan pesan "Aksi tidak valid" */
-        if (!isValid(Hygiene, 5, 15) && !isValid(Energy, 0, 10))
+        if (!isValid(Hygiene, 5, 15) || !isValid(Energy, 0, 10))
                 cout << TidakValid << "\n";
         else
         {
@@ -137,7 +145,7 @@ void Minum3()
         I.S. : State sembarang
         F.S. : Hygiene berkurang -5 dan energy bertambah 10
         atau menampilkan pesan "Aksi tidak valid" */
-        if (!isValid(Hygiene, 5, 15) && !isValid(Energy, 0, 5))
+        if (!isValid(Hygiene, 5, 15) || !isValid(Energy, 0, 5))
                 cout << TidakValid << "\n";
         else
         {
@@ -162,72 +170,76 @@ void BuangK()
         }
 }
 
-void BuangB() {
-/*  Buang Air Besar, divalidasi hygiene harus <= 5 dan
+void BuangB()
+{
+        /*  Buang Air Besar, divalidasi hygiene harus <= 5 dan
     energy harus >= 5
    I.S. : State sembarang
    F.S. : Hygiene bertambah 10 dan energy berkurang -5
         atau menampilkan pesan "Aksi tidak valid" */
-        if (!isValid(Hygiene, 0, 5) && !isValid(Energy, 5, 15))
+        if (!isValid(Hygiene, 0, 5) || !isValid(Energy, 5, 15))
                 cout << TidakValid << "\n";
         else
         {
                 Hygiene = Hygiene + 10;
-                Energy = Energy -5;
+                Energy = Energy - 5;
                 TulisKondisi();
         }
 }
 
-void Kafe() {
-/* Bersosialisasi ke Kasfe,  harus divalidasi energi >= 10, fun = 0 dan hygiene >=5.
+void Kafe()
+{
+        /* Bersosialisasi ke Kasfe,  harus divalidasi energi >= 10, fun = 0 dan hygiene >=5.
    I.S. : State sembarang
    F.S. : Fun bertambah +15, Energy berkurang -10, dan hygiene bertambah -5 atau menampilkan pesan
         "Aksi tidak valid" */
-        if (!isValid(Hygiene, 5, 15) && !isValid(Energy, 10, 15) && !isValid(Fun,0,0))
+        if (!isValid(Hygiene, 5, 15) || !isValid(Energy, 10, 15) || !isValid(Fun, 0, 0))
                 cout << TidakValid << "\n";
         else
         {
                 Hygiene = Hygiene - 5;
-                Energy  = Energy - 10;
-                Fun     = Fun + 15;
+                Energy = Energy - 10;
+                Fun = Fun + 15;
                 TulisKondisi();
         }
 }
 
-void MedSos() {
-/* Bermain Media Sosial,  harus divalidasi energi >= 10 dan fun <= 5.
+void MedSos()
+{
+        /* Bermain Media Sosial,  harus divalidasi energi >= 10 dan fun <= 5.
    I.S. : State sembarang
    F.S. : Fun bertambah +10 dan Energy berkurang -10 atau menampilkan pesan
         "Aksi tidak valid" */
-        if (!isValid(Fun, 0, 5) && !isValid(Energy, 10, 15))
+        if (!isValid(Fun, 0, 5) || !isValid(Energy, 10, 15))
                 cout << TidakValid << "\n";
         else
         {
-                Energy  = Energy - 10;
-                Fun     = Fun + 10;
+                Energy = Energy - 10;
+                Fun = Fun + 10;
                 TulisKondisi();
         }
 }
 
-
-void Komp() {
-/* Bermain komputer,  harus divalidasi energi >= 10, fun = 0 dan hygiene >=5.  ;
+void Komp()
+{
+        /* Bermain komputer,  harus divalidasi energi >= 10, fun = 0 dan hygiene >=5.  ;
    I.S. : State sembarang
    F.S. : Fun bertambah +15, Energy berkurang -10, dan hygiene bertambah -5 atau menampilkan pesan
         "Aksi tidak valid" */
-        if (!isValid(Hygiene, 5, 15) && !isValid(Energy, 10, 15) && !isValid(Fun,0,0))
+        if (!isValid(Hygiene, 5, 15) || !isValid(Energy, 10, 15) || !isValid(Fun, 0, 0))
                 cout << TidakValid << "\n";
         else
         {
                 Hygiene = Hygiene - 5;
-                Energy  = Energy - 10;
-                Fun     = Fun + 15;
+                Energy = Energy - 10;
+                Fun = Fun + 15;
                 TulisKondisi();
         }
 }
 
-void Mandi() {
-/* Mandi,  harus melakukan validasi terlebih dahulu yaitu
+void Mandi()
+{
+        /* Mandi,  harus melakukan validasi terlebih dahulu yaitu
  Energy >= 5 dan Hygiene = 0 jika valid maka akan melakukan aksi penambahan 
  atau pengurangan terhadap atribut.
    I.S. : State sembarang
@@ -235,18 +247,19 @@ void Mandi() {
     atau menampilkan pesan
         "Aksi tidak valid" */
 
-        if (!isValid(Hygiene, 0, 0) && !isValid(Energy, 5, 15))
+        if (!isValid(Hygiene, 0, 0) || !isValid(Energy, 5, 15))
                 cout << TidakValid << "\n";
         else
         {
                 Hygiene = Hygiene + 15;
-                Energy  = Energy - 5;
+                Energy = Energy - 5;
                 TulisKondisi();
         }
 }
 
-void Cuci() {
-/* Cuci,  harus melakukan validasi terlebih dahulu yaitu
+void Cuci()
+{
+        /* Cuci,  harus melakukan validasi terlebih dahulu yaitu
  Hygiene <=10 jika valid maka akan melakukan aksi penambahan 
  atau pengurangan terhadap atribut.
    I.S. : State sembarang
@@ -260,56 +273,58 @@ void Cuci() {
                 TulisKondisi();
         }
 }
-void Musik() {
-/* Musik,  harus melakukan validasi terlebih dahulu yaitu
+void Musik()
+{
+        /* Musik,  harus melakukan validasi terlebih dahulu yaitu
  Energy >=5 dan Fun <=5 jika valid maka akan melakukan aksi penambahan 
  atau pengurangan terhadap atribut.
    I.S. : State sembarang
    F.S. : Fun bertambah +10 dan Energy berkurang  -5
     atau menampilkan pesan "Aksi tidak valid" */
 
-        if ( !isValid(Energy, 5, 15) && !isValid(Fun,0,5))
+        if (!isValid(Energy, 5, 15) || !isValid(Fun, 0, 5))
                 cout << TidakValid << "\n";
         else
         {
-                Energy  = Energy - 5;
-                Fun     = Fun + 10;
+                Energy = Energy - 5;
+                Fun = Fun + 10;
                 TulisKondisi();
         }
 }
 
-void Baca1() {
-/* Baca1,  harus melakukan validasi terlebih dahulu yaitu
+void Baca1()
+{
+        /* Baca1,  harus melakukan validasi terlebih dahulu yaitu
  Energy >=5 dan Fun <=10 jika valid maka akan melakukan aksi penambahan 
  atau pengurangan terhadap atribut.
    I.S. : State sembarang
    F.S. : Fun bertambah +5 dan Energy berkurang -5
     atau menampilkan pesan "Aksi tidak valid" */
 
-        if ( !isValid(Energy, 5, 15) && !isValid(Fun,0,10))
+        if (!isValid(Energy, 5, 15) || !isValid(Fun, 0, 10))
                 cout << TidakValid << "\n";
         else
         {
-                Energy  = Energy - 5;
-                Fun     = Fun + 5;
+                Energy = Energy - 5;
+                Fun = Fun + 5;
                 TulisKondisi();
         }
 }
 
-void Baca2() {
-/* Baca2,  melakukan validasi terlebih dahulu yaitu Fun<=5 dan Energy >=5 jika valid maka akan m                                lakukan aksi penambahan 
+void Baca2()
+{
+        /* Baca2,  melakukan validasi terlebih dahulu yaitu Fun<=5 dan Energy >=5 jika valid maka akan m                                lakukan aksi penambahan 
  atau pengurangan terhadap atribut.
    I.S. : State sembarang
    F.S. : Fun bertambah +10 dan Energy berkurang -5
     atau menampilkan pesan "Aksi tidak valid" */
 
-        if (!isValid(Energy, 5, 15) && !isValid(Fun,0,5))
+        if (!isValid(Energy, 5, 15) || !isValid(Fun, 0, 5))
                 cout << TidakValid << "\n";
         else
         {
-                Energy  = Energy - 5;
-                Fun     = Fun + 10;
+                Energy = Energy - 5;
+                Fun = Fun + 10;
                 TulisKondisi();
         }
 }
-

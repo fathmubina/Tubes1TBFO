@@ -7,6 +7,10 @@ extern int Energy;
 extern int Fun;
 extern char TidakValid[];
 
+bool isGameOver();
+/* Mengirimkan true jola permainan selesai yaitu 
+  jika semua atribut bernilai 0 atau 15*/
+
 void TulisKondisi();
 /* Menulis semua kondisi
    I.S. : State sembarang
