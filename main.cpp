@@ -1,10 +1,8 @@
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 #include "tbfo.h"
 
 using namespace std;
 
-int Hygiene, Energy, Fun;
 bool Valid;
 
 int main()
@@ -17,7 +15,7 @@ int main()
 
     while (Valid)
     {
-        cin >> Input;
+        getline(cin, Input);
 
         if (Input == "Tidur Siang")
             Tidur1();
@@ -56,7 +54,7 @@ int main()
         else if (Input == "Membaca Novel")
             Baca2();
         else
-            cout << "Periksa Masukan Kembali";
+            cout << "Periksa Masukan Kembali\n";
     }
 
     return 0;

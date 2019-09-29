@@ -7,6 +7,11 @@ extern int Energy;
 extern int Fun;
 extern char TidakValid[];
 
+void TulisKondisi();
+/* Menulis semua kondisi
+   I.S. : State sembarang
+   F.S. : Menulis nilai ketiga kondisi */
+
 bool isValid(int State, int Min, int Max);
 /* Mengirim true jika Min <= State <= Max dgn 0 <= Min < 15, 0 < Max <= 15 */
 

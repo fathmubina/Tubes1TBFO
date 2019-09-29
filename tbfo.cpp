@@ -8,6 +8,16 @@ int Energy;
 int Fun;
 char TidakValid[] = "Aksi tidak valid";
 
+void TulisKondisi()
+{
+        /* Menulis semua kondisi
+        I.S. : State sembarang
+        F.S. : Menulis nilai ketiga kondisi */
+        cout << "Hygiene = " << Hygiene << "\n";
+        cout << "Energy = " << Energy << "\n";
+        cout << "Fun = " << Fun << "\n";
+}
+
 bool isValid(int State, int Min, int Max)
 {
         /* Mengirim true jika Min <= State <= Max dgn 0 <= Min <= 15, 0 <= Max <= 15 */
@@ -23,7 +33,10 @@ void Tidur1()
         if (!isValid(Energy, 0, 5))
                 cout << TidakValid << "\n";
         else
+        {
                 Energy = Energy + 10;
+                TulisKondisi();
+        }
 }
 
 void Tidur2()
@@ -35,7 +48,10 @@ void Tidur2()
         if (!isValid(Energy, 0, 0))
                 cout << TidakValid << "\n";
         else
+        {
                 Energy = Energy + 15;
+                TulisKondisi();
+        }
 }
 void Makan1()
 {
@@ -46,7 +62,10 @@ void Makan1()
         if (!isValid(Energy, 0, 10))
                 cout << TidakValid << "\n";
         else
+        {
                 Energy = Energy + 5;
+                TulisKondisi();
+        }
 }
 
 void Makan2()
@@ -58,7 +77,10 @@ void Makan2()
         if (!isValid(Energy, 0, 5))
                 cout << TidakValid << "\n";
         else
+        {
                 Energy = Energy + 10;
+                TulisKondisi();
+        }
 }
 
 void Makan3()
@@ -70,7 +92,10 @@ void Makan3()
         if (!isValid(Energy, 0, 0))
                 cout << TidakValid << "\n";
         else
+        {
                 Energy = Energy + 15;
+                TulisKondisi();
+        }
 }
 
 void Minum1()
@@ -82,7 +107,10 @@ void Minum1()
         if (!isValid(Hygiene, 5, 15))
                 cout << TidakValid << "\n";
         else
+        {
                 Hygiene = Hygiene - 5;
+                TulisKondisi();
+        }
 }
 
 void Minum2()
@@ -98,6 +126,7 @@ void Minum2()
         {
                 Hygiene = Hygiene - 10;
                 Energy = Energy + 5;
+                TulisKondisi();
         }
 }
 
@@ -114,6 +143,7 @@ void Minum3()
         {
                 Hygiene = Hygiene - 5;
                 Energy = Energy + 10;
+                TulisKondisi();
         }
 }
 
@@ -128,40 +158,41 @@ void BuangK()
         else
         {
                 Hygiene = Hygiene + 5;
+                TulisKondisi();
         }
 }
 
-void BuangB();
+void BuangB() {}
 /*  Buang Air Besar, divalidasi hygiene harus <= 5 dan
     energy harus >= 5
    I.S. : State sembarang
    F.S. : Hygiene bertambah 10 dan energy berkurang -5
         atau menampilkan pesan "Aksi tidak valid" */
 
-void Kafe();
+void Kafe() {}
 /* Bersosialisasi ke Kasfe,  harus divalidasi energi >= 10, fun = 0 dan hygiene >=5.
    I.S. : State sembarang
    F.S. : Fun bertambah +15, Energy berkurang -10, dan hygiene bertambah -5 atau menampilkan pesan
         "Aksi tidak valid" */
 
-void MedSos();
+void MedSos() {}
 /* Bermain Media Sosial,  harus divalidasi energi >= 10 dan fun <= 5.
    I.S. : State sembarang
    F.S. : Fun bertambah +10 dan Energy berkurang -10 atau menampilkan pesan
         "Aksi tidak valid" */
 
-void Komp();
+void Komp() {}
 /* Bermain komputer,  harus divalidasi energi >= 10, fun = 0 dan hygiene >=5.  ;
    I.S. : State sembarang
    F.S. : Fun bertambah +15, Energy berkurang -10, dan hygiene bertambah -5 atau menampilkan pesan
         "Aksi tidak valid" */
 
-void Mandi();
+void Mandi() {}
 
-void Cuci();
+void Cuci() {}
 
-void Musik();
+void Musik() {}
 
-void Baca1();
+void Baca1() {}
 
-void Baca2();
+void Baca2() {}
