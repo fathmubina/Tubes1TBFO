@@ -5,6 +5,10 @@
 extern int Hygiene;
 extern int Energy;
 extern int Fun;
+extern char TidakValid[];
+
+bool isValid(int State, int Min, int Max);
+/* Mengirim true jika Min <= State <= Max dgn 0 <= Min < 15, 0 < Max <= 15 */
 
 void Tidur1();
 /* Tidur Siang, divalidasi energi harus <= 5;
