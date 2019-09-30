@@ -3,7 +3,7 @@
 
 using namespace std;
 
-bool Valid;
+bool Jalan;
 
 int main()
 {
@@ -11,11 +11,19 @@ int main()
     Hygiene = 0;
     Energy = 10;
     Fun = 0;
-    Valid = true;
+    Jalan = true;
 
-    while (Valid)
+    cout << "==========================\n";
+    cout << "Selamat datang di The Sims\n";
+    cout << "==========================\n\n";
+    cout << "Kamu baru saja bangun, kondisimu saat ini adalah\n";
+    TulisKondisi();
+
+    while (Jalan)
     {
+        cout << "\n";
         getline(cin, Input);
+        cout << "\n";
 
         if (Input == "Tidur Siang")
             Tidur1();
@@ -55,7 +63,16 @@ int main()
             Baca2();
         else
             cout << "Periksa Masukan Kembali\n";
+
+        if (isGameOver())
+        {
+            Jalan = false;
+        }
+
+        cout << "\n";
     }
+
+    cout << "Permainan Selesai!!\n";
 
     return 0;
 }
