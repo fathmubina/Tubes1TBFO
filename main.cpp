@@ -3,21 +3,20 @@
 
 using namespace std;
 
-bool Jalan;
+bool Jalan, Valid;
 
 int main()
 {
-    string Input;
+    string Input, enter;
     Hygiene = 0;
     Energy = 10;
     Fun = 0;
     Jalan = true;
+    Valid = true;
 
-    cout << "===================================\n";
+    cout << "=====================================\n";
     cout << "Selamat datang di The Sims 'Gadungan'\n";
-    cout << "===================================\n\n";
-    cout << "Kamu baru saja bangun, kondisimu saat ini adalah\n";
-    TulisKondisi();
+    cout << "=====================================\n\n";
 
     cout << "Terdapat beberapa pilihan\n";
     cout << "====================================================================================================================================\n";
@@ -25,13 +24,17 @@ int main()
     cout << "|2. Tidur Malam        |6. Minum Air               |10. Buang Air Besar        |14. Mandi                      |18. Membaca Novel  |\n";
     cout << "|3. Makan Hamburger    |7. Minum Kopi              |11. Bersosialisasi ke Kafe |15. Cuci Tangan                                    |\n";
     cout << "|4. Makan Pizza        |8. Minum Jus               |12. Bermain Media Sosial   |16. Mendengarkan Musik di Radio                    |\n";
-    cout << "====================================================================================================================================\n";
-    cout << "Pilihlah dari aksi diatas.\n";
-    cout << "Mau ngapain kamu? ";
+    cout << "====================================================================================================================================\n\n";
+
+    cout << "Kamu baru saja bangun, kondisimu saat ini adalah\n";
+    TulisKondisi();
+    cout << "\nPilihlah dari aksi diatas.\n";
 
     while (Jalan)
     {
-        cout << "Mau ngapain lagi kamu? ";
+        if (Valid)
+            cout << "Mau ngapain kamu? \n $ ";
+
         getline(cin, Input);
         cout << "\n";
 
@@ -72,7 +75,11 @@ int main()
         else if (Input == "Membaca Novel")
             Baca2();
         else
-            cout << "Periksa Masukan Kembali\n";
+        {
+            cout << "Coba ulangi lagi masukanmu!\n $ ";
+            Valid = false;
+            continue;
+        }
 
         if (isGameOver())
         {
@@ -80,9 +87,12 @@ int main()
         }
 
         cout << "\n";
+        Valid = true;
     }
 
     cout << "Permainan Selesai!!\n";
+    cout << "Press Enter to Exit ";
+    getline(cin, enter);
 
     return 0;
 }

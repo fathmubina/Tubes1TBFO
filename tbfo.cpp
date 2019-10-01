@@ -6,7 +6,7 @@ using namespace std;
 int Hygiene;
 int Energy;
 int Fun;
-char TidakValid[] = "Aksi tidak valid";
+char TidakValid[] = "==== Aksi tidak valid ====";
 
 bool isGameOver()
 {
@@ -20,9 +20,11 @@ void TulisKondisi()
         /* Menulis semua atribut
         I.S. : Atribut sembarang
         F.S. : Menulis nilai ketiga kondisi */
-        cout << "Hygiene = " << Hygiene << "\n";
-        cout << "Energy = " << Energy << "\n";
-        cout << "Fun = " << Fun << "\n";
+        cout << "===============================\n";
+        cout << "|Hygiene       = " << Hygiene << "\n";
+        cout << "|Energy        = " << Energy << "\n";
+        cout << "|Fun           = " << Fun << "\n";
+        cout << "===============================\n";
 }
 
 bool isValid(int Atribut, int Min, int Max)
