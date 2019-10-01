@@ -15,11 +15,11 @@ bool isGameOver()
         return ((Hygiene == 15) && (Energy == 15) && (Fun == 15)) || ((Hygiene == 0) && (Energy == 0) && (Fun == 0));
 }
 
-void TulisKondisi()
+void TulisAtribut()
 {
         /* Menulis semua atribut
         I.S. : Atribut sembarang
-        F.S. : Menulis nilai ketiga kondisi */
+        F.S. : Menulis nilai ketiga atribut */
         cout << "===============================\n";
         cout << "|Hygiene       = " << Hygiene << "\n";
         cout << "|Energy        = " << Energy << "\n";
@@ -30,7 +30,7 @@ void TulisKondisi()
 bool isValid(int Atribut, int Min, int Max)
 {
         /* True jika Min <= Atribut <= Max 
-        dgn 0 <= Min <= 15, 0 <= Max <= 15 */
+        dengan 0 <= Min <= 15, 0 <= Max <= 15 */
 
         return (Atribut >= Min) && (Atribut <= Max);
 }
@@ -48,7 +48,7 @@ void Tidur1()
         else
         {
                 Energy = Energy + 10;
-                TulisKondisi();
+                TulisAtribut();
         }
 }
 
@@ -65,12 +65,13 @@ void Tidur2()
         else
         {
                 Energy = Energy + 15;
-                TulisKondisi();
+                TulisAtribut();
         }
 }
 void Makan1()
 {
         /* Makan Hamburger, harus divalidasi energi harus <= 10;
+        jika valid maka akan melakukan aksi penambahan atau pengurangan terhadap atribut.
         I.S. :  Atribut sembarang
         F.S. :  Energy bertambah +5 
                 atau menampilkan pesan "Aksi tidak valid" */
@@ -80,7 +81,7 @@ void Makan1()
         else
         {
                 Energy = Energy + 5;
-                TulisKondisi();
+                TulisAtribut();
         }
 }
 
@@ -97,7 +98,7 @@ void Makan2()
         else
         {
                 Energy = Energy + 10;
-                TulisKondisi();
+                TulisAtribut();
         }
 }
 
@@ -114,7 +115,7 @@ void Makan3()
         else
         {
                 Energy = Energy + 15;
-                TulisKondisi();
+                TulisAtribut();
         }
 }
 
@@ -131,7 +132,7 @@ void Minum1()
         else
         {
                 Hygiene = Hygiene - 5;
-                TulisKondisi();
+                TulisAtribut();
         }
 }
 
@@ -149,7 +150,7 @@ void Minum2()
         {
                 Hygiene = Hygiene - 10;
                 Energy = Energy + 5;
-                TulisKondisi();
+                TulisAtribut();
         }
 }
 
@@ -167,7 +168,7 @@ void Minum3()
         {
                 Hygiene = Hygiene - 5;
                 Energy = Energy + 10;
-                TulisKondisi();
+                TulisAtribut();
         }
 }
 
@@ -184,7 +185,7 @@ void BuangK()
         else
         {
                 Hygiene = Hygiene + 5;
-                TulisKondisi();
+                TulisAtribut();
         }
 }
 
@@ -202,7 +203,7 @@ void BuangB()
         {
                 Hygiene = Hygiene + 10;
                 Energy = Energy - 5;
-                TulisKondisi();
+                TulisAtribut();
         }
 }
 
@@ -221,7 +222,7 @@ void Kafe()
                 Hygiene = Hygiene - 5;
                 Energy = Energy - 10;
                 Fun = Fun + 15;
-                TulisKondisi();
+                TulisAtribut();
         }
 }
 
@@ -239,7 +240,7 @@ void MedSos()
         {
                 Energy = Energy - 10;
                 Fun = Fun + 10;
-                TulisKondisi();
+                TulisAtribut();
         }
 }
 
@@ -258,7 +259,7 @@ void Komp()
                 Hygiene = Hygiene - 5;
                 Energy = Energy - 10;
                 Fun = Fun + 15;
-                TulisKondisi();
+                TulisAtribut();
         }
 }
 
@@ -276,13 +277,13 @@ void Mandi()
         {
                 Hygiene = Hygiene + 15;
                 Energy = Energy - 5;
-                TulisKondisi();
+                TulisAtribut();
         }
 }
 
 void Cuci()
 {
-        /* Cuci,  harus melakukan validasi terlebih dahulu yaitu Hygiene <=10 
+        /* Cuci Tangan,  harus melakukan validasi terlebih dahulu yaitu Hygiene <=10 
         jika valid maka akan melakukan aksi penambahan atau pengurangan terhadap atribut.
         I.S. :  Atribut sembarang
         F.S. :  Hygiene bertambah +5 
@@ -293,7 +294,7 @@ void Cuci()
         else
         {
                 Hygiene = Hygiene + 5;
-                TulisKondisi();
+                TulisAtribut();
         }
 }
 void Musik()
@@ -310,7 +311,7 @@ void Musik()
         {
                 Energy = Energy - 5;
                 Fun = Fun + 10;
-                TulisKondisi();
+                TulisAtribut();
         }
 }
 
@@ -328,7 +329,7 @@ void Baca1()
         {
                 Energy = Energy - 5;
                 Fun = Fun + 5;
-                TulisKondisi();
+                TulisAtribut();
         }
 }
 
@@ -346,6 +347,6 @@ void Baca2()
         {
                 Energy = Energy - 5;
                 Fun = Fun + 10;
-                TulisKondisi();
+                TulisAtribut();
         }
 }

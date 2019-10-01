@@ -26,8 +26,8 @@ int main()
     cout << "|4. Makan Pizza        |8. Minum Jus               |12. Bermain Media Sosial   |16. Mendengarkan Musik di Radio                    |\n";
     cout << "====================================================================================================================================\n\n";
 
-    cout << "Kamu baru saja bangun, kondisimu saat ini adalah\n";
-    TulisKondisi();
+    cout << "Kamu baru saja bangun, atributmu saat ini adalah\n";
+    TulisAtribut();
     cout << "\nPilihlah dari aksi diatas.\n";
 
     while (Jalan)
