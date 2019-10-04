@@ -8,6 +8,7 @@
         <td>No.</td>
         <td>Nama</td>
         <td>NIM</td>
+    </tr>
     <tr>
         <td>1.</td>
         <td>Ilham Syahid S</td>
